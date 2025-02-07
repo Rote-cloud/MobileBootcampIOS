@@ -12,32 +12,61 @@ struct Forecast: Codable {
 
 struct ForecastDay: Codable {
     let date: String
-    let date_epoch: Int
+    let dateEpoch: Int
     let day: Day
     let astro: Astro
     let hour: [Hour]
+
+    enum CodingKeys: String, CodingKey {
+        case date
+        case dateEpoch = "date_epoch"
+        case day, astro, hour
+    }
 }
 
 struct Day: Codable {
-    let maxtemp_c: Double
-    let maxtemp_f: Double
-    let mintemp_c: Double
-    let mintemp_f: Double
-    let avgtemp_c: Double
-    let avgtemp_f: Double
-    let maxwind_mph: Double
-    let maxwind_kph: Double
-    let totalprecip_mm: Double
-    let totalprecip_in: Double
-    let avgvis_km: Double
-    let avgvis_miles: Double
-    let avghumidity: Double
-    let daily_will_it_rain: Int
-    let daily_chance_of_rain: Int
-    let daily_will_it_snow: Int
-    let daily_chance_of_snow: Int
+    let maxtempC: Double
+    let maxtempF: Double
+    let mintempC: Double
+    let mintempF: Double
+    let avgtempC: Double
+    let avgtempF: Double
+    let maxwindMph: Double
+    let maxwindKph: Double
+    let totalprecipMm: Double
+    let totalprecipIn: Double
+    let totalsnowCm: Double
+    let avgvisKm: Double
+    let avgvisMiles: Double
+    let avghumidity: Int
+    let dailyWillItRain: Int
+    let dailyChanceOfRain: Int
+    let dailyWillItSnow: Int
+    let dailyChanceOfSnow: Int
     let condition: Condition
     let uv: Double
+
+    enum CodingKeys: String, CodingKey {
+        case maxtempC = "maxtemp_c"
+        case maxtempF = "maxtemp_f"
+        case mintempC = "mintemp_c"
+        case mintempF = "mintemp_f"
+        case avgtempC = "avgtemp_c"
+        case avgtempF = "avgtemp_f"
+        case maxwindMph = "maxwind_mph"
+        case maxwindKph = "maxwind_kph"
+        case totalprecipMm = "totalprecip_mm"
+        case totalprecipIn = "totalprecip_in"
+        case totalsnowCm = "totalsnow_cm"
+        case avgvisKm = "avgvis_km"
+        case avgvisMiles = "avgvis_miles"
+        case avghumidity
+        case dailyWillItRain = "daily_will_it_rain"
+        case dailyChanceOfRain = "daily_chance_of_rain"
+        case dailyWillItSnow = "daily_will_it_snow"
+        case dailyChanceOfSnow = "daily_chance_of_snow"
+        case condition, uv
+    }
 }
 
 struct Astro: Codable {
@@ -45,42 +74,93 @@ struct Astro: Codable {
     let sunset: String
     let moonrise: String
     let moonset: String
-    let moon_phase: String
-    let moon_illumination: String
+    let moonPhase: String
+    let moonIllumination: Int
+    let isMoonUp: Int
+    let isSunUp: Int
+
+    enum CodingKeys: String, CodingKey {
+        case sunrise, sunset, moonrise, moonset
+        case moonPhase = "moon_phase"
+        case moonIllumination = "moon_illumination"
+        case isMoonUp = "is_moon_up"
+        case isSunUp = "is_sun_up"
+    }
 }
 
 struct Hour: Codable {
-    let time_epoch: Int
+    let timeEpoch: Int
     let time: String
-    let temp_c: Double
-    let temp_f: Double
-    let is_day: Int
+    let tempC: Double
+    let tempF: Double
+    let isDay: Int
     let condition: Condition
-    let wind_mph: Double
-    let wind_kph: Double
-    let wind_degree: Int
-    let wind_dir: String
-    let pressure_mb: Double
-    let pressure_in: Double
-    let precip_mm: Double
-    let precip_in: Double
+    let windMph: Double
+    let windKph: Double
+    let windDegree: Int
+    let windDir: String
+    let pressureMb: Double
+    let pressureIn: Double
+    let precipMm: Double
+    let precipIn: Double
+    let snowCm: Double?
     let humidity: Int
     let cloud: Int
-    let feelslike_c: Double
-    let feelslike_f: Double
-    let windchill_c: Double
-    let windchill_f: Double
-    let heatindex_c: Double
-    let heatindex_f: Double
-    let dewpoint_c: Double
-    let dewpoint_f: Double
-    let will_it_rain: Int
-    let chance_of_rain: Int
-    let will_it_snow: Int
-    let chance_of_snow: Int
-    let vis_km: Double
-    let vis_miles: Double
-    let gust_mph: Double
-    let gust_kph: Double
+    let feelslikeC: Double
+    let feelslikeF: Double
+    let windchillC: Double
+    let windchillF: Double
+    let heatindexC: Double
+    let heatindexF: Double
+    let dewpointC: Double
+    let dewpointF: Double
+    let willItRain: Int
+    let chanceOfRain: Int
+    let willItSnow: Int
+    let chanceOfSnow: Int
+    let visKm: Double
+    let visMiles: Double
+    let gustMph: Double
+    let gustKph: Double
     let uv: Double
+    let shortRad: Double?
+    let diffRad: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case timeEpoch = "time_epoch"
+        case time
+        case tempC = "temp_c"
+        case tempF = "temp_f"
+        case isDay = "is_day"
+        case condition
+        case windMph = "wind_mph"
+        case windKph = "wind_kph"
+        case windDegree = "wind_degree"
+        case windDir = "wind_dir"
+        case pressureMb = "pressure_mb"
+        case pressureIn = "pressure_in"
+        case precipMm = "precip_mm"
+        case precipIn = "precip_in"
+        case snowCm = "snow_cm"
+        case humidity, cloud
+        case feelslikeC = "feelslike_c"
+        case feelslikeF = "feelslike_f"
+        case windchillC = "windchill_c"
+        case windchillF = "windchill_f"
+        case heatindexC = "heatindex_c"
+        case heatindexF = "heatindex_f"
+        case dewpointC = "dewpoint_c"
+        case dewpointF = "dewpoint_f"
+        case willItRain = "will_it_rain"
+        case chanceOfRain = "chance_of_rain"
+        case willItSnow = "will_it_snow"
+        case chanceOfSnow = "chance_of_snow"
+        case visKm = "vis_km"
+        case visMiles = "vis_miles"
+        case gustMph = "gust_mph"
+        case gustKph = "gust_kph"
+        case uv
+        case shortRad = "short_rad"
+        case diffRad = "diff_rad"
+    }
 }
