@@ -4,7 +4,7 @@ import SwiftUI
 struct MobileBootcampIOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CustomNavigationView(appRouter: .init())
         }
     }
 }
