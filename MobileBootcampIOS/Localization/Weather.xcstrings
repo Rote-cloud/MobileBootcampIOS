@@ -1,0 +1,148 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "ChanceRain" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chance of Rain"
+          }
+        }
+      }
+    },
+    "CurrentLocation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your current location"
+          }
+        }
+      }
+    },
+    "FailedData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to retrieve data"
+          }
+        }
+      }
+    },
+    "HavingRain" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Having Rain"
+          }
+        }
+      }
+    },
+    "HavingSnow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Having Snow"
+          }
+        }
+      }
+    },
+    "Humidity" : {
+      "extractionState" : "manual"
+    },
+    "LoadingData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading weather data..."
+          }
+        }
+      }
+    },
+    "Locations" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locations"
+          }
+        }
+      }
+    },
+    "Moonrise" : {
+      "extractionState" : "manual"
+    },
+    "Moonset" : {
+      "extractionState" : "manual"
+    },
+    "Pressure" : {
+      "extractionState" : "manual"
+    },
+    "Sunrise" : {
+      "extractionState" : "manual"
+    },
+    "Sunset" : {
+      "extractionState" : "manual"
+    },
+    "TryAgain" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try Again"
+          }
+        }
+      }
+    },
+    "UV" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UV Index"
+          }
+        }
+      }
+    },
+    "Visibility" : {
+      "extractionState" : "manual"
+    },
+    "WindDirection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wind Direction"
+          }
+        }
+      }
+    },
+    "WindSpeed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wind Speed"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
