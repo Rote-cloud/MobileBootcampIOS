@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 class MainPageRouter {
 
     private let rootCoordinator: NavigationCoordinator

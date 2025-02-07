@@ -13,7 +13,7 @@ struct Forecast: Codable {
 struct ForecastDay: Codable {
     let date: String
     let dateEpoch: Int
-    let day: Day
+    let day: OneDay
     let astro: Astro
     let hour: [Hour]
 
@@ -24,7 +24,7 @@ struct ForecastDay: Codable {
     }
 }
 
-struct Day: Codable {
+struct OneDay: Codable {
     let maxtempC: Double
     let maxtempF: Double
     let mintempC: Double

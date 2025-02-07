@@ -43,7 +43,7 @@ final class MainViewModel: ObservableObject {
                 case .success(let weather):
                     self?.weather = weather
                     self?.state = .loaded
-                case .failure(_):
+                case .failure:
                     self?.state = .error
                 }
             }

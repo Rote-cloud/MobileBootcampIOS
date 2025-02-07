@@ -4,7 +4,7 @@ public struct NavBar<Left, Center, Right>: View where Left: View, Center: View, 
     let left: () -> Left
     let center: () -> Center
     let right: () -> Right
-    
+
     public init(
         @ViewBuilder left: @escaping () -> Left = { EmptyView() },
         @ViewBuilder center: @escaping () -> Center = { EmptyView() },

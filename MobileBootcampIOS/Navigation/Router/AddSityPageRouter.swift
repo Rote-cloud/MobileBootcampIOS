@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 class AddSityPageRouter {
 
     private let rootCoordinator: NavigationCoordinator

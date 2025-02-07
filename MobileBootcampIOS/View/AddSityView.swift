@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct AddSityView: View {
 
     @StateObject var viewModel: AddSityViewModel

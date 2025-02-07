@@ -7,7 +7,7 @@ extension DateFormatter {
         formatter.dateFormat = "E, d MMMM"
         return formatter
     }()
-    
+
     static func formatWeatherDate(_ timestamp: Int) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
         return weatherDateFormatter.string(from: date)

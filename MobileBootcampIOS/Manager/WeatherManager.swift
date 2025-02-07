@@ -1,7 +1,8 @@
 import Foundation
+
 protocol WeatherManagerProtocol {
     var city: String? { get set }
-    
+
     func fetchWeather(completion: @escaping (Result<WeatherEntity, Error>) -> Void)
 }
 
@@ -73,7 +74,7 @@ extension WeatherManager {
         )
     }
 
-    private func mapPrecipitation(_ day: Day?) -> PrecipitationInfoEntity {
+    private func mapPrecipitation(_ day: OneDay?) -> PrecipitationInfoEntity {
         return PrecipitationInfoEntity(
             isRaining: day?.dailyWillItRain == 1 ? "Yes" : "No",
             chanceOfRain: "\(day?.dailyChanceOfRain ?? 0)%",

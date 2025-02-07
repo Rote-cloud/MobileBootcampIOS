@@ -20,7 +20,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         guard let location = locations.first else { return }
 
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, _ in
             guard let self = self,
                   let placemark = placemarks?.first,
                   let city = placemark.locality else {
@@ -37,4 +37,3 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         completion?("Unknown")
     }
 }
-

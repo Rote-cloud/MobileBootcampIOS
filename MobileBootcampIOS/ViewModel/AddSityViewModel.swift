@@ -1,6 +1,5 @@
 import Foundation
 
-
 final class AddSityViewModel: ObservableObject {
 
     private let router: AddSityPageRouter

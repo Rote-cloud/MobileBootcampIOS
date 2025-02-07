@@ -15,7 +15,7 @@ final class NetworkService: NetworkServiceProtocol {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.httpMethod
 
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             if let error = error {
                 DispatchQueue.main.async {
                     completion(.failure(error))
