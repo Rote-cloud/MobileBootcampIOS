@@ -1,57 +1,40 @@
 import SwiftUI
 import CoreLocation
 
-protocol LocationManagerDelegate: AnyObject {
-    func didUpdateLocation(city: String)
-}
-
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    weak var delegate: LocationManagerDelegate?
-
-    private var locationManager = CLLocationManager()
-    @Published var city: String = "Unknown"
+class LocationManager: NSObject, CLLocationManagerDelegate {
+    private let manager = CLLocationManager()
+    private var completion: ((String) -> Void)?
 
     override init() {
         super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
     }
 
-    func requestLocation() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+    func requestLocation(completion: @escaping (String) -> Void) {
+        self.completion = completion
+        manager.requestWhenInUseAuthorization()
+        manager.requestLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        getCityName(from: location)
-    }
+        guard let location = locations.first else { return }
 
-    func getCityName(from location: CLLocation) {
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            if let placemark = placemarks?.first, let cityName = placemark.locality {
-                DispatchQueue.main.async {
-                    self.city = cityName
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.city = "Unknown"
-                }
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            guard let self = self,
+                  let placemark = placemarks?.first,
+                  let city = placemark.locality else {
+                self?.completion?("Unknown")
+                return
             }
+
+            self.completion?(city)
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        DispatchQueue.main.async {
-            self.city = "Unknown"
-        }
+        print("Location error: \(error.localizedDescription)")
+        completion?("Unknown")
     }
 }
 
-extension LocationManager {
-    private func updateCity(_ city: String) {
-        self.city = city
-        delegate?.didUpdateLocation(city: city)
-    }
-}
